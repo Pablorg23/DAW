@@ -1,5 +1,5 @@
 import java.util.*;
-public class T1_ejercicio7 {
+public class T1_ejercicio7_Pablo {
     
     
         public static void main(String[] args) {
