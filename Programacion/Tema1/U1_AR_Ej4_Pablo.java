@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class T1_ejercicio4_Pablo {
+public class U1_AR_Ej4_Pablo {
     
     public static void main(String[] args) {
         
