@@ -14,7 +14,9 @@ public class T1_ejercicio6 {
         System.out.println("Introduce tu segunda nota");
         valor2=teclado.nextInt();
 
-        int media=(valor1+valor2)/2;
+        
+
+        double media=(valor1+valor2)/2.0;
 
         System.out.println("Tu nota media es de "+media);
     }
