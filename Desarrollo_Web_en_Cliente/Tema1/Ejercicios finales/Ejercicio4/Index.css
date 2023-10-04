@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#div-imagen {
+    display: none; /* Oculta las imágenes inicialmente */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#boton-pulsar {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
