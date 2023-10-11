@@ -13,6 +13,5 @@ public class U2_AR_Ej7_Pablo{
             System.out.println("El número no es casi 0.");
         }
 
-        teclado.close();
     }
 }
