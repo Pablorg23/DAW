@@ -18,5 +18,7 @@ public class U1_AA_Ej21_Pablo {
 
         System.out.println("¿Son iguales? " + sonIguales);
 
+        teclado.close();
+
     }
 }

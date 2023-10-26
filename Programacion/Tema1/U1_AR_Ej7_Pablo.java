@@ -16,6 +16,9 @@ public class U1_AR_Ej7_Pablo {
 
         System.out.println("La longitud de la circuferencia es de "+longitud);
         System.out.println("El area de tu circuferencia es de "+area);
+
+        teclado.close();
+
         }
 
 }
