@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tarea_P_RA2-g-Tablas de Multiplicar_Pablo</title>
+</head>
+<body>
+    <!-- El bloque de inicio de la página -->
+
+    <h1>Tablas de Multiplicar, Sumar y Dividir</h1>
+
+    <!-- Encabezado principal de la sección de tablas -->
+
+    <!-- Tabla de multiplicar del 7 utilizando un bucle for -->
+    <h2>Tabla de multiplicar del 7:</h2>
+    <ul id="tablaMultiplicar7"></ul>
+    <script>
+        document.write("<ul>");
+        for (let i = 1; i <= 10; i++) {
+            const resultado = 7 * i;
+            document.write(`<li>7 x ${i} = ${resultado}</li>`);
+        }
+        document.write("</ul>");
+    </script>
+
+    <!-- Tabla de sumar del 8 utilizando un bucle while -->
+    <h2>Tabla de sumar del 8:</h2>
+    <ul id="tablaSumar8"></ul>
+    <script>
+        document.write("<ul>");
+        let i = 1;
+        while (i <= 10) {
+            const resultado = 8 + i;
+            document.write(`<li>8 + ${i} = ${resultado}</li>`);
+            i++;
+        }
+        document.write("</ul>");
+    </script>
+
+    <!-- Tabla de dividir del 9 utilizando un bucle do-while -->
+    <h2>Tabla de dividir del 9:</h2>
+    <ul id="tablaDividir9"></ul>
+    <script>
+        document.write("<ul>");
+        let j = 1;
+        do {
+            const resultado = 9 / j;
+            document.write(`<li>9 / ${j} = ${resultado}</li>`);
+            j++;
+        } while (j <= 10);
+        document.write("</ul>");
+    </script>
+
+    <h1>Operaciones con Desplazamiento de Bits</h1>
+
+    <!-- Encabezado principal de la sección de operaciones con desplazamiento de bits -->
+
+    <!-- Operaciones con desplazamiento de bits (no se hacer desplazamiento de bits asiq para esta parte si he necesitado ayuda)-->
+    <ul>
+        <li>125 / 8 = <script>document.write(125 >> 3);</script></li>
+        <li>40 x 4 = <script>document.write(40 << 2);</script></li>
+        <li>25 / 2 = <script>document.write(25 >> 1);</script></li>
+        <li>10 x 16 = <script>document.write(10 << 4);</script></li>
+    </ul>
+</body>
+</html>

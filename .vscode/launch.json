@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "U1_AR_Ej14_Pablo",
+            "request": "launch",
+            "mainClass": "U1_AR_Ej14_Pablo",
+            "projectName": "DAW_3cd03fdf"
+        },
+        {
+            "type": "java",
             "name": "T1_ejercicioFinales19_Pablo",
             "request": "launch",
             "mainClass": "T1_ejercicioFinales19_Pablo",

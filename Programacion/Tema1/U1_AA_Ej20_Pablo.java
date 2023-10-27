@@ -15,5 +15,8 @@ public class U1_AA_Ej20_Pablo {
 
         System.out.println("La raíz cuadrada de " + numero + " es " + raizCuadrada);
 
+        teclado.close();
+
+
     }
 }

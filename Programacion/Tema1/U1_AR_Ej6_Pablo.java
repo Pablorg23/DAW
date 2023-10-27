@@ -19,5 +19,8 @@ public class U1_AR_Ej6_Pablo {
         double media=(valor1+valor2)/2.0;
 
         System.out.println("Tu nota media es de "+media);
+
+        teclado.close();
+
     }
 }

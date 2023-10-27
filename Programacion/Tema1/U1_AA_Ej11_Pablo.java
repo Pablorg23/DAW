@@ -17,6 +17,7 @@ public class U1_AA_Ej11_Pablo {
         System.out.println("Importe del IVA: " + importeIVA);
         System.out.println("Total a pagar: " + total);
 
-       
+        teclado.close();
+
     }
 }

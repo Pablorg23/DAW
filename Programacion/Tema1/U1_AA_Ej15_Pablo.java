@@ -24,6 +24,10 @@ public class U1_AA_Ej15_Pablo {
         y=(a*(x*x))+(b*x)+c;
 
         System.out.println("El valor de la y es de = "+y);
+        
+        teclado.close();
+
+    
     }
 
 }

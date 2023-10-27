@@ -16,5 +16,8 @@ public class U1_AR_Ej4_Pablo {
         anioDeNacimiento=anioActual-anioDeNacimiento;
 
         System.out.println("Tu edad es de "+anioDeNacimiento);
+
+        teclado.close();
+
     }
 }

@@ -22,5 +22,8 @@ public class U1_AA_Ej17_Pablo {
         sumaEnCentimetros = milimetros + centimetros + metros;
 
         System.out.println("La suma de las distancias en centímetros es: " + sumaEnCentimetros + " cm");
+
+        teclado.close();
+
     }
 }

@@ -15,5 +15,8 @@ public class U1_AA_Ej22_Pablo {
 
         System.out.println("La longitud en centímetros es: " + longitudCentimetros + " cm");
 
+        teclado.close();
+
+
     }
 }

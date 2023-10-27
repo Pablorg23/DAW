@@ -21,6 +21,10 @@ public class U1_AA_Ej16_Pablo {
         segundos=segundos-aux;
 
         System.out.println("En "+segundos2+" hay un total de "+horas+" horas, "+minutos+" minutos"+segundos+" segundos");
+
+
+        teclado.close();
+
     }
 
 }
