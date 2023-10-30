@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 8</title>
+</head>
+<body>
+  <script>
+    function extraerMesYAnio(fecha) {
+      // Crear un objeto Date a partir de la cadena de fecha
+      var fechaObj = new Date(fecha);
+
+      // Extraer el mes y el año de la fecha
+      var mes = fechaObj.getMonth() + 1; // Sumamos 1 porque los meses van de 0 a 11
+      var anio = fechaObj.getFullYear();
+
+      // Mostrar el resultado
+      alert("Mes: " + mes + "\nAño: " + anio);
+    }
+
+    // Llamar a la función con una fecha concreta
+    extraerMesYAnio("2023-10-29");
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ramirez_Pablo_DWC_T3T1</title>
+</head>
+<body>
+  <h1>Cronómetro</h1>
+  <label for="horasInput">Horas:</label>
+  <input type="number" id="horasInput" placeholder="0">
+  <label for="minutosInput">Minutos:</label>
+  <input type="number" id="minutosInput" placeholder="0">
+  <label for="segundosInput">Segundos:</label>
+  <input type="number" id="segundosInput" placeholder="0">
+  <button onclick="iniciarCronometro()">Iniciar Cronómetro</button>
+  <button onclick="detenerCronometro()">Detener Cronómetro</button>
+  <div id="contador">Tiempo restante: 0 horas, 0 minutos, 0 segundos</div>
+
+  <script>
+    let horasRestantes = 0;
+    let minutosRestantes = 0;
+    let segundosRestantes = 0;
+    let intervalo;
+
+    function iniciarCronometro() {
+      const horasInput = parseInt(document.getElementById("horasInput").value, 10);
+      const minutosInput = parseInt(document.getElementById("minutosInput").value, 10);
+      const segundosInput = parseInt(document.getElementById("segundosInput").value, 10);
+
+      if (!isNaN(horasInput) && !isNaN(minutosInput) && !isNaN(segundosInput) && (horasInput > 0 || minutosInput > 0 || segundosInput > 0)) {
+        horasRestantes = horasInput;
+        minutosRestantes = minutosInput;
+        segundosRestantes = segundosInput;
+        intervalo = setInterval(actualizarContador, 1000);
+        actualizarContador();
+      } else {
+        alert("Ingresa un valor válido (número positivo) para horas, minutos o segundos.");
+      }
+    }
+
+    function detenerCronometro() {
+      clearInterval(intervalo);
+      document.getElementById("contador").textContent = "Cronómetro detenido.";
+    }
+
+    function actualizarContador() {
+      document.getElementById("contador").textContent = `Tiempo restante: ${horasRestantes} horas, ${minutosRestantes} minutos, ${segundosRestantes} segundos`;
+
+      if (horasRestantes === 0 && minutosRestantes === 0 && segundosRestantes === 0) {
+        detenerCronometro();
+        document.getElementById("contador").textContent = "¡Tiempo terminado!";
+      }
+
+      if (segundosRestantes > 0) {
+        segundosRestantes--;
+      } else if (minutosRestantes > 0) {
+        minutosRestantes--;
+        segundosRestantes = 59;
+      } else if (horasRestantes > 0) {
+        horasRestantes--;
+        minutosRestantes = 59;
+        segundosRestantes = 59;
+      }
+    }
+  </script>
+</body>
+</html>
