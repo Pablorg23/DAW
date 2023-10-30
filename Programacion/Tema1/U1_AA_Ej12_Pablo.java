@@ -18,6 +18,7 @@ public class U1_AA_Ej12_Pablo {
 
         System.out.println("A " + numero + " hay que sumarle " + diferencia + " para que sea múltiplo de 7.");
         }
-       
+        teclado.close();
+
     }
 }

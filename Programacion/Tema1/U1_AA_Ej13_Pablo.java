@@ -14,6 +14,7 @@ public class U1_AA_Ej13_Pablo {
 
         System.out.println("A " + n + " hay que sumarle " + diferencia + " para que sea múltiplo de " + m + ".");
 
-       
+        teclado.close();
+
     }
 }

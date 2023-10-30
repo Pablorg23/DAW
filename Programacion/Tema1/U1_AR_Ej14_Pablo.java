@@ -11,6 +11,7 @@ public class U1_AR_Ej14_Pablo {
 
         System.out.println("El número redondeado al entero más cercano es: " + numeroRedondeado);
 
-       
+        teclado.close();
+
     }
 }

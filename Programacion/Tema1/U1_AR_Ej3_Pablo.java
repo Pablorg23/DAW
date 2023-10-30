@@ -15,5 +15,8 @@ public class U1_AR_Ej3_Pablo {
 
         System.out.println("La edad que tendras el año que viene es de "+edad);
 
+        teclado.close();
+
+
     }
 }

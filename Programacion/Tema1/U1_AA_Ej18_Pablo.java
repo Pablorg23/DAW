@@ -20,6 +20,8 @@ public class U1_AA_Ej18_Pablo {
 
         System.out.println("El número total de patas es: " + totalPatas + " patas");
 
+        teclado.close();
+
     }
 }
 

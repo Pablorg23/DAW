@@ -13,6 +13,8 @@ public class U1_AA_Ej14_Pablo {
         double area = (base * altura) / 2;
 
         System.out.println("El área del triángulo es: " + area);
+        
+        teclado.close();
 
     }
 }
