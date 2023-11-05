@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de Cookies</title>
+</head>
+<body>
+    <h1>Mi Página con Cookies</h1>
+    <p>Bienvenido a mi página.</p>
+    <label for="nombre">Ingresa tu nombre: </label>
+    <input type="text" id="nombre">
+    <button onclick="setCookie()">Establecer Cookie con Nombre</button>
+    <button onclick="getCookies()">Ver Cookies</button>
+    <button onclick="deleteCookie()">Borrar Cookie</button>
+    <p id="cookieData"></p>
+    <p>Visitas: <span id="visitCounter">0</span></p>
+
+    <script>
+        // Función para establecer una cookie con el nombre del usuario y contar visitas
+        function setCookie() {
+            const nombre = document.getElementById("nombre").value;
+
+            if (nombre) {
+                document.cookie = `usuario=${encodeURIComponent(nombre)};`;
+                alert(`Cookie establecida con el nombre: ${nombre}`);
+            } else {
+                alert("Ingresa un nombre válido.");
+            }
+
+            // Incrementar el contador de visitas
+            const visitas = getVisitas() + 1;
+            document.cookie = `visitas=${visitas};`;
+            document.getElementById("visitCounter").textContent = visitas;
+        }
+
+        // Función para obtener y mostrar todas las cookies
+        function getCookies() {
+            const cookies = document.cookie;
+            document.getElementById("cookieData").textContent = `Cookies almacenadas:\n${cookies}`;
+        }
+
+        // Función para borrar la cookie con el nombre del usuario
+        function deleteCookie() {
+            document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            document.getElementById("cookieData").textContent = "Cookie borrada.";
+        }
+
+        // Función para obtener el número de visitas
+        function getVisitas() {
+            const visitasCookie = document.cookie.split('; ').find(c => c.startsWith('visitas='));
+            if (visitasCookie) {
+                return parseInt(visitasCookie.split('=')[1]);
+            }
+            return 0;
+        }
+    </script>
+</body>
+</html>
