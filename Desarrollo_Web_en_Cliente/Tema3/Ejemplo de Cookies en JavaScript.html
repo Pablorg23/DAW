@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Almacenar Nombres de Usuario en Cookies</title>
+</head>
+<body>
+    <h1>Almacenar Nombres de Usuario en Cookies</h1>
+    <p>Introduce tu nombre:</p>
+    <input type="text" id="nombreInput">
+    <button onclick="guardarNombre()">Guardar Nombre</button>
+    
+    <p>Nombres de usuario almacenados en cookies:</p>
+    <ul id="nombresUsuario"></ul>
+
+    <button onclick="borrarCookies()">Borrar Cookies</button>
+    <button onclick="mostrarCantidadCookies()">Mostrar Cantidad de Cookies</button>
+    
+    <p>Cantidad de veces que se ha introducido una cookie: <span id="cantidadCookies"></span></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
