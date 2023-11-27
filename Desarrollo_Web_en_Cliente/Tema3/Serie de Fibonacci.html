@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serie de Fibonacci</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Calculadora de la Serie de Fibonacci</h2>
+
+<label for="number">Ingrese el número de términos:</label>
+<input type="number" id="number" min="1" value="1">
+<button onclick="calculateFibonacci()">Calcular</button>
+
+<p id="result"></p>
+
+<script>
+  function calculateFibonacci() {
+    var numberInput = document.getElementById("number").value;
+    var resultElement = document.getElementById("result");
+
+    if (numberInput <= 0) {
+      resultElement.textContent = "Por favor, ingrese un número válido.";
+      return;
+    }
+
+    var fibonacciSeries = [0, 1];
+
+    for (var i = 2; i < numberInput; i++) {
+      var nextTerm = fibonacciSeries[i - 1] + fibonacciSeries[i - 2];
+      fibonacciSeries.push(nextTerm);
+    }
+
+    resultElement.textContent = "Serie de Fibonacci: " + fibonacciSeries.join(", ");
+  }
+</script>
+
+</body>
+</html>
