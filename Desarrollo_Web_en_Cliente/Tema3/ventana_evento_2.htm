@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ventana Principal</title>
+    <script language="javascript">
+        var ventanaSecundaria;
+
+        function abrirVentana() {
+            var parametros = "width=400, height=300, left=200, top=150, resizable=no, menubar=no, toolbar=no, directories=no, location=no, scrollbars=no, status=no";
+            ventanaSecundaria = window.open("texto_de_secundaria_2.htm", "ventana", parametros);
+        }
+
+        function cerrarVentanaSecundaria() {
+            if (ventanaSecundaria) {
+                ventanaSecundaria.close();
+            }
+        }
+
+        function aplicarCoordenadas() {
+            var izquierda = prompt("Ingrese la coordenada izquierda:");
+            var arriba = prompt("Ingrese la coordenada arriba:");
+
+            if (!isNaN(izquierda) && !isNaN(arriba)) {
+                ventanaSecundaria.moveTo(izquierda, arriba);
+            } else {
+                alert("Por favor, ingrese coordenadas válidas.");
+            }
+        }
+
+        function seleccionarColores() {
+            var color1 = prompt("Ingrese el color 1:");
+            var color2 = prompt("Ingrese el color 2:");
+            var color3 = prompt("Ingrese el color 3:");
+
+            document.body.style.backgroundColor = color1;
+            document.body.style.color = color2;
+            ventanaSecundaria.document.body.style.backgroundColor = color3;
+        }
+
+        function focusVentana() {
+            if (ventanaSecundaria) {
+                ventanaSecundaria.focus();
+            }
+        }
+
+        function blurVentana() {
+            if (ventanaSecundaria) {
+                ventanaSecundaria.blur();
+            }
+        }
+
+        function configurarVentana() {
+            var tiempo = prompt("Ingrese el tiempo de activación de la ventana (en milisegundos):");
+            var texto = prompt("Ingrese el texto a mostrar en la ventana secundaria:");
+            var tamanoTexto = prompt("Ingrese el tamaño del texto:");
+            var colorTexto = prompt("Ingrese el color del texto:");
+
+            ventanaSecundaria.setTimeout(function () {
+                ventanaSecundaria.document.body.innerHTML = "<h1 style='font-size: " + tamanoTexto + "; color: " + colorTexto + ";'>" + texto + "</h1>";
+            }, tiempo);
+        }
+    </script>
+</head>
+<body>
+    <button onClick="abrirVentana();">Abrir Ventana</button>
+    <button onClick="cerrarVentanaSecundaria();">Cerrar Ventana Secundaria</button>
+    <button onClick="aplicarCoordenadas();">Aplicar Coordenadas</button>
+    <button onClick="seleccionarColores();">Seleccionar Colores</button>
+    <button onClick="focusVentana();">Focus Ventana Secundaria</button>
+    <button onClick="blurVentana();">Blur Ventana Secundaria</button>
+    <button onClick="configurarVentana();">Configurar Ventana Secundaria</button>
+</body>
+</html>
