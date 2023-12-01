@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 5</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+// Declarar una variable global
+var miVariableGlobal = "Soy una variable global";
+
+// Declarar una función global
+function miFuncionGlobal() {
+    return "Soy una función global";
+}
+
+// Mostrar el valor de la variable global
+document.getElementById("demo").innerHTML = miVariableGlobal + "<br>" + miFuncionGlobal();
+
+// Sobrescribir la variable global
+miVariableGlobal = "He sido sobrescrito";
+
+// Sobrescribir la función global
+miFuncionGlobal = function() {
+    return "He sido sobrescrito";
+}
+
+// Mostrar el valor actualizado de la variable global
+document.getElementById("demo").innerHTML += "<br>" + miVariableGlobal + "<br>" + miFuncionGlobal();
+</script>
+
+</body>
+</html>

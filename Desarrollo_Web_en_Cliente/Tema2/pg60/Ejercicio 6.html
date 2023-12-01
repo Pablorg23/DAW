@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 6</title>
+</head>
+<body>
+  <script>
+    function mouseEntro() {
+      alert("El ratón está sobre el elemento.");
+    }
+
+    function mouseSalió() {
+      alert("El ratón ha salido del elemento.");
+    }
+
+    function elementoPerdióEnfoque() {
+      alert("El elemento ha perdido el enfoque.");
+    }
+  </script>
+  <div onmouseover="mouseEntro()" onmouseout="mouseSalió()">Pasa el ratón sobre mí y luego sácalo.</div>
+  <input type="text" onblur="elementoPerdióEnfoque()" placeholder="Escribe algo y luego haz clic fuera de este campo.">
+</body>
+</html>
