@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Frases</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #frases {
+            margin-top: 50px;
+            width: 80%;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="generarFrase()">Generar Frase</button>
+    <div id="frases"></div>
+    <script src="script.js"></script>
+</body>
+</html>
