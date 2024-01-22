@@ -1,0 +1,29 @@
+<!--
+Diseña una aplicación simple de lista de tareas utilizando JavaScript.
+
+Crea una función llamada agregarTarea que permita al usuario ingresar una nueva tarea y 
+la almacene en una cookie.
+
+Diseña otra función llamada mostrarTareas que recupere las tareas almacenadas en la cookie y 
+las muestre en la consola.
+
+Implementa un bucle que permita al usuario agregar múltiples tareas sin recargar la página.
+
+Asegúrate de validar la entrada del usuario y de proporcionar mensajes claros en caso de errores.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+    <script src="Ejercicio2.js"></script>
+</head>
+<body>
+    <p>Introduce una nueva tarea</p>
+    <input type="text" id="tarea" name="tarea" value="">
+    <button onclick="agregarTarea()">Añadir tarea</button>
+    <button onclick="mostrarTareas()">Ver Tareas</button>
+</body>
+</html>
