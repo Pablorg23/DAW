@@ -55,8 +55,11 @@
             var tamanoTexto = prompt("Ingrese el tamaño del texto:");
             var colorTexto = prompt("Ingrese el color del texto:");
 
-            ventanaSecundaria.setTimeout(function () {
+            setTimeout(function () {
                 ventanaSecundaria.document.body.innerHTML = "<h1 style='font-size: " + tamanoTexto + "; color: " + colorTexto + ";'>" + texto + "</h1>";
+                setTimeout(function () {
+                    ventanaSecundaria.close();
+                }, tiempo);
             }, tiempo);
         }
     </script>
