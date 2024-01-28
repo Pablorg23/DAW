@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Example</title>
+</head>
+<body>
+
+<script>
+    var str = "Aprende javascript de 10 en Síntesis";
+    
+    // Buscar la posición de 'S' o 't' en la cadena (sin importar mayúsculas o minúsculas)
+    var m = str.search(/[S|t]/i);
+    console.log("Posición de 'S' o 't':", m);
+
+    // Buscar la posición de cualquier dígito en la cadena
+    var n = str.search(/[0-9]/i);
+    console.log("Posición de un dígito:", n);
+
+    // Buscar la posición de uno o más ceros en la cadena
+    var a = str.search(/0+/i);
+    console.log("Posición de uno o más ceros:", a);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Página con JavaScript</title>
+   </head>
+   <body onLoad="crearNodos();">
+      <table align="center" width="300" border="2">
+         <tr height="40">
+            <th colspan="3" id="cabecera">
+               Esto es la cabecera de la tabla.
+            </th>
+         </tr>
+         <tr height="50">
+            <td align="center" width="300">Celda 1</td>
+            <td align="center" width="300">Celda 2</td>
+            <td align="center" width="300">Celda 3</td>
+         </tr>
+         <tr height="50">
+            <td align="center">Celda 4</td>
+            <td align="center">Celda 5</td>
+            <td align="center">Celda 6</td>
+         </tr>
+         <tr height="50">
+            <td align="center">Celda 7</td>
+            <td align="center">Celda 8</td>
+            <td align="center">Celda 9</td>
+         </tr>
+      </table>
+
+      <br>
+      <div align="center">
+         <button onclick="toggleCabezera()">Cambiar/Restaurar cabecera</button>
+         <input type="text" id="cabeceraAux" name="cabeceraAux" placeholder="Nuevo título">
+      </div>
+
+      <script>
+         var cabeceraOriginal = "Esto es la cabecera de la tabla.";
+         var cabecera = document.getElementById("cabecera");
+         var isCabeceraOriginal = true;
+
+         // Función para cambiar/restaurar la cabecera
+         function toggleCabezera() {
+            if (isCabeceraOriginal) {
+               cambiarCabezera();
+            } else {
+               restaurarCabezera();
+            }
+            isCabeceraOriginal = !isCabeceraOriginal;
+         }
+
+         // Función para restaurar la cabecera original
+         function restaurarCabezera() {
+            cabecera.innerHTML = cabeceraOriginal;
+         }
+
+         // Función para cambiar la cabecera
+         function cambiarCabezera() {
+            var nuevoTitulo = document.getElementById("cabeceraAux").value.trim();
+
+            // Validar que no este vacio
+            if (nuevoTitulo === "") {
+               alert("Por favor, ingrese un nuevo título.");
+            } else {
+               // Cambiar la cabecera
+               cabecera.innerHTML = nuevoTitulo;
+            }
+         }
+      </script>
+   </body>
+</html>

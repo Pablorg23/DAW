@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+<body>
+
+<p>Nombre</p>
+<input type="text" value="" id="nombre">
+
+<p>Apellido</p>
+<input type="text" value="" id="apellido">
+
+<p></p>
+<button onclick="estaVacio()">Comprobar si está vacío</button>
+
+<script>
+function estaVacio() {
+    var nombre = document.getElementById("nombre").value.trim();
+    var apellido = document.getElementById("apellido").value.trim();
+
+    if (nombre === "" || apellido === "") {
+        alert("Uno de los dos campos está sin rellenar");
+    } else {
+        alert("El ejercicio está correcto");
+    }
+}
+</script>
+
+</body>
+</html>
