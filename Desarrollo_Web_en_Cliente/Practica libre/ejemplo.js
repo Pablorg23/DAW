@@ -1,10 +1,10 @@
 var ventana1, ventana2, ventana3, ventana4;
 
 function abrir() {
-    ventana1 = window.open('hola.html', '_blank', 'width=500,height=300,left=500,top=0');
+    ventana1 = window.open('hola.html', '_blank', 'width=500,height=300,left=50000,top=0');
     ventana2 = window.open('hola.html', '_blank', 'width=500,height=300,left=0,top=0');
-    ventana3 = window.open('hola.html', '_blank', 'width=500,height=300,left=500,top=500');
-    ventana4 = window.open('hola.html', '_blank', 'width=500,height=300,left=0,top=500');
+    ventana3 = window.open('hola.html', '_blank', 'width=500,height=300,left=50000,top=50000');
+    ventana4 = window.open('hola.html', '_blank', 'width=500,height=300,left=0,top=50000');
 }
 
 function cerrarVentanas() {
@@ -20,9 +20,19 @@ function darColor() {
     if (ventana3) ventana3.document.body.style.backgroundColor = 'green';
     if (ventana4) ventana4.document.body.style.backgroundColor = 'yellow';
 }
+function objetoCompleto(){
 
+
+
+}
+
+function arrayOrdenar(){
+
+
+}
 function cerrarDespuesDe10Segundos() {
     setTimeout(function() {
         cerrarVentanas();
     }, 10000); // 10000 milisegundos = 10 segundos
 }
+function 
