@@ -35,4 +35,3 @@ function cerrarDespuesDe10Segundos() {
         cerrarVentanas();
     }, 10000); // 10000 milisegundos = 10 segundos
 }
-function 
