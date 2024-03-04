@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto a Mayúsculas</title>
+    <style>
+        /* Agregamos un poco de estilo para que sea más visual */
+        input {
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<p>Pasea el ratón sobre el campo de texto para convertir a mayúsculas:</p>
+<input type="text" id="campoTexto" onmouseover="convertirMayusculas(this)" onmouseout="restaurarTexto(this)">
+
+<script>
+function convertirMayusculas(elemento) {
+    // Guardamos el valor original antes de convertir a mayúsculas
+    elemento.setAttribute("data-original-value", elemento.value);
+    
+    // Convertimos a mayúsculas
+    elemento.value = elemento.value.toUpperCase();
+}
+
+function restaurarTexto(elemento) {
+    // Restauramos el valor original
+    elemento.value = elemento.getAttribute("data-original-value");
+}
+</script>
+
+</body>
+</html>

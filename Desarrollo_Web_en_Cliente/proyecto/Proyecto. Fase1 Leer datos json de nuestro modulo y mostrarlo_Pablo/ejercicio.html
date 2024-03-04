@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de RA</title>
+</head>
+<body>
+
+    <label for="selectRA">Selecciona un número del 1 al 6:</label>
+    <select id="selectRA">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+
+    <button onclick="imprimirRA()">Imprimir RA</button>
+
+    <div id="resultadoRA"></div>
+
+    <script>
+        function imprimirRA() {
+            // Obtener el valor seleccionado en el select
+            var seleccionado = document.getElementById("selectRA").value;
+
+            // Hacer una solicitud AJAX para obtener el JSON
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Parsear el JSON y obtener el RA correspondiente al número seleccionado
+                    var data = JSON.parse(this.responseText);
+
+                    // Acceder correctamente a los datos
+                    var raSeleccionado = data[seleccionado - 1]["Entornos de desarrollo"][0];
+
+                    // Mostrar el resultado en el elemento con id "resultadoRA"
+                    var resultadoHTML = "<p>ID: " + raSeleccionado.id + "</p>";
+                    resultadoHTML += "<p>Texto RA: " + raSeleccionado.textoRA + "</p>";
+                    resultadoHTML += "<p>Criterios:</p><ul>";
+
+                    // Recorrer los criterios y agregarlos a la lista
+                    for (var criterio in raSeleccionado.criterios) {
+                        resultadoHTML += "<li>" + criterio + ": " + raSeleccionado.criterios[criterio] + "</li>";
+                    }
+
+                    resultadoHTML += "</ul>";
+
+                    document.getElementById("resultadoRA").innerHTML = resultadoHTML;
+                }
+            };
+            xhttp.open("GET", "Bd.json", true);
+            xhttp.send();
+        }
+    </script>
+
+</body>
+</html>

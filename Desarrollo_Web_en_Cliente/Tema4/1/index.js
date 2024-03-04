@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Obtención de elementos del DOM
   var campoNombre = document.getElementById("nombre");
   var campoApellidos = document.getElementById("apellidos");
   var campoEdad = document.getElementById("edad");
@@ -10,44 +11,54 @@ document.addEventListener("DOMContentLoaded", function () {
   var campoHora = document.getElementById("hora");
   var contenedorErrores = document.getElementById("errores");
 
+  // Event listener para el evento blur en campoNombre
   campoNombre.addEventListener("blur", function () {
     convertirAMayusculas(campoNombre);
     validarNombre();
   });
 
+  // Event listener para el evento blur en campoApellidos
   campoApellidos.addEventListener("blur", function () {
     convertirAMayusculas(campoApellidos);
     validarApellidos();
   });
 
+  // Event listener para el evento blur en campoEdad
   campoEdad.addEventListener("blur", function () {
     validarEdad();
   });
 
+  // Event listener para el evento blur en campoNIF
   campoNIF.addEventListener("blur", function () {
     validarNIF();
   });
 
+  // Event listener para el evento blur en campoEmail
   campoEmail.addEventListener("blur", function () {
     validarEmail();
   });
 
+  // Event listener para el evento blur en campoProvincia
   campoProvincia.addEventListener("blur", function () {
     validarProvincia();
   });
 
+  // Event listener para el evento blur en campoFecha
   campoFecha.addEventListener("blur", function () {
     validarFecha();
   });
 
+  // Event listener para el evento blur en campoTelefono
   campoTelefono.addEventListener("blur", function () {
     validarTelefono();
   });
 
+  // Event listener para el evento blur en campoHora
   campoHora.addEventListener("blur", function () {
     validarHora();
   });
 
+  // Event listener para el evento submit del formulario
   document.getElementById("formulario").addEventListener("submit", function (evento) {
     if (!confirm("¿Estás seguro de enviar el formulario?")) {
       evento.preventDefault();
@@ -58,10 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Función para convertir a mayúsculas el valor de un campo
   function convertirAMayusculas(input) {
     input.value = input.value.toUpperCase();
   }
 
+  // Función de validación para el campo de teléfono
   function validarTelefono() {
     var valorTelefono = campoTelefono.value.trim();
     var regexTelefono = /^\d{9}$/;
@@ -71,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Event listener para el evento blur en campoHora (segunda vez)
   campoHora.addEventListener("blur", function () {
     var valorHora = campoHora.value.trim();
     var regexHora = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -80,29 +94,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Función para mostrar un mensaje de error
   function mostrarError(mensaje, input) {
     contenedorErrores.textContent = mensaje;
     input.classList.add("error");
     input.focus();
   }
 
+  // Función para mostrar un mensaje de éxito
   function mostrarExito(mensaje) {
     var contenedorExito = document.getElementById("mensajes");
     contenedorExito.textContent = mensaje;
   }
 
+  // Función de validación para el campo de nombre
   function validarNombre() {
     if (campoNombre.value.trim() === "") {
       mostrarError("Nombre no puede estar vacío", campoNombre);
     }
   }
 
+  // Función de validación para el campo de apellidos
   function validarApellidos() {
     if (campoApellidos.value.trim() === "") {
       mostrarError("Apellidos no pueden estar vacíos", campoApellidos);
     }
   }
 
+  // Función de validación para el campo de edad
   function validarEdad() {
     var valorEdad = campoEdad.value.trim();
     if (!/^\d+$/.test(valorEdad) || parseInt(valorEdad) < 0 || parseInt(valorEdad) > 105) {
@@ -110,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Función de validación para el campo de NIF
   function validarNIF() {
     var valorNIF = campoNIF.value.trim();
     var regexNIF = /^\d{8}-[A-Z]$/;
@@ -119,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Función de validación para el campo de email
   function validarEmail() {
     var valorEmail = campoEmail.value.trim();
     var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -128,12 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Función de validación para el campo de provincia
   function validarProvincia() {
     if (campoProvincia.value === "0") {
       mostrarError("Seleccione una provincia", campoProvincia);
     }
   }
 
+  // Función de validación para el campo de fecha
   function validarFecha() {
     var valorFecha = campoFecha.value.trim();
     var regexFecha = /^\d{2}[/|-]\d{2}[/|-]\d{4}$/;
@@ -143,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Función de validación general del formulario
   function validarFormulario() {
     if (campoNombre.value.trim() === "") {
       mostrarError("Nombre no puede estar vacío", campoNombre);
@@ -153,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarError("Apellidos no pueden estar vacíos", campoApellidos);
       return false;
     }
-
 
     return true;
   }
