@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>DWEC06 - SOLUCION TAREA</title>
+  <style type="text/css">
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #container {
+      text-align: center;
+    }
+
+    #zonadibujo {
+      display: grid;
+      grid-template-columns: repeat(30, 15px);
+      grid-template-rows: repeat(30, 15px);
+      gap: 1px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    .celda {
+      width: 15px;
+      height: 15px;
+      border: 1px solid #fff;
+      background-color: #fff;
+    }
+
+    #paleta {
+      margin-top: 10px;
+    }
+
+    .color {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .tablerodibujo {
+      border-top-width: thin;
+      border-right-width: thin;
+      border-bottom-width: thin;
+      border-left-width: thin;
+      border-top-style: solid;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+      width: auto;
+    }
+
+    .tablerodibujo td {
+      width: 10px;
+      height: 10px;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .color1 {
+      background-color: #FF0;
+    }
+
+    .color2 {
+      background-color: #0F0;
+    }
+
+    .color3 {
+      background-color: #000;
+    }
+
+    .color4 {
+      background-color: #F00;
+    }
+
+    .color5 {
+      background-color: #06C;
+    }
+
+    .color6 {
+      background-color: #FFF;
+    }
+
+    #paleta td {
+      width: 70px;
+      height: 20px;
+    }
+
+    #pincel {
+      text-align: center;
+    }
+
+    .seleccionado {
+      border: medium solid #939;
+    }
+  </style>
+  <script type="text/javascript" src="https://educacionadistancia.juntadeandalucia.es/centros/almeria/pluginfile.php/262796/mod_assign/introattachment/0/Apellidos_nombre_t6p1_dwc.js"></script>
+  <script>
+    let colorSeleccionado = 'black';
+    let pintando = false;
+
+    function crearCelda() {
+      const celda = document.createElement('div');
+      celda.classList.add('celda');
+      celda.addEventListener('mousedown', () => {
+        pintando = true;
+        pintarCelda(celda);
+      });
+      celda.addEventListener('mouseenter', () => {
+        if (pintando) {
+          pintarCelda(celda);
+        }
+      });
+      celda.addEventListener('mouseup', () => {
+        pintando = false;
+      });
+      return celda;
+    }
+
+    function pintarCelda(celda) {
+      celda.style.backgroundColor = colorSeleccionado;
+    }
+
+    function seleccionarColor(color) {
+      colorSeleccionado = color;
+      document.getElementById('pincel').innerHTML = 'Estado del pincel: ' + colorSeleccionado.toUpperCase();
+    }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <p>TABLERO DE DIBUJO EN JAVASCRIPT</p>
+    <table width="500" border="1" id="paleta" summary="Tabla de selección de colores" class="tablerodibujo">
+      <caption>
+        Haga CLICK en un color para comenzar a pintar
+      </caption>
+      <tr>
+        <td class="color1 seleccionado" onclick="seleccionarColor('yellow')"></td>
+        <td class="color2" onclick="seleccionarColor('green')"></td>
+        <td class="color3" onclick="seleccionarColor('black')"></td>
+        <td class="color4" onclick="seleccionarColor('red')"></td>
+        <td class="color5" onclick="seleccionarColor('blue')"></td>
+        <td class="color6" onclick="seleccionarColor('white')"></td>
+      </tr>
+      <tr>
+        <td colspan="6" id="pincel">Estado del pincel: Negro</td>
+      </tr>
+    </table>
+    <div id="zonadibujo"></div>
+  </div>
+  <script>
+    const zonadibujo = document.getElementById('zonadibujo');
+
+    for (let i = 0; i < 30 * 30; i++) {
+      const celda = crearCelda();
+      zonadibujo.appendChild(celda);
+    }
+  </script>
+</body>
+</html>
