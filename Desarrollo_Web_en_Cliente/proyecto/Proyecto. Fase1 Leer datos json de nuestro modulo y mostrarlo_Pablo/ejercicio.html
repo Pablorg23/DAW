@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de RA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Profesor</title>
 </head>
 <body>
 
-    <label for="selectRA">Selecciona un número del 1 al 6:</label>
-    <select id="selectRA">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-    </select>
+  <div>
+    <label for="profesor">Profesor:</label>
+    <span id="nombreProfesor"></span>
+    <input type="text" id="nombreInput" style="display: none;" onkeypress="checkEnter(event)">
+  </div>
 
-    <button onclick="imprimirRA()">Imprimir RA</button>
+  <div id="credenciales">
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" placeholder="Usuario">
 
-    <div id="resultadoRA"></div>
+    <label for="contraseña">Contraseña:</label>
+    <input type="password" id="contraseña" placeholder="Contraseña">
+  </div>
 
-    <script>
-        function imprimirRA() {
-            // Obtener el valor seleccionado en el select
-            var seleccionado = document.getElementById("selectRA").value;
+  <div>
+    <button onclick="cargarDatos()">Cargar Datos</button>
+    <button onclick="accesoAdmin()">Acceso Admin</button>
+  </div>
 
-            // Hacer una solicitud AJAX para obtener el JSON
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Parsear el JSON y obtener el RA correspondiente al número seleccionado
-                    var data = JSON.parse(this.responseText);
+  <script>
+    function cargarDatos() {
+      // Puedes reemplazar este JSON con los datos que tienes.
+      const datosJSON = '{"nombre": "Profesor Ejemplo"}';
+      const datos = JSON.parse(datosJSON);
+      document.getElementById('nombreProfesor').innerText = datos.nombre;
+      document.getElementById('nombreInput').style.display = 'inline';
+    }
 
-                    // Acceder correctamente a los datos
-                    var raSeleccionado = data[seleccionado - 1]["Entornos de desarrollo"][0];
+    function accesoAdmin() {
+      const usuario = document.getElementById('usuario').value;
+      const contraseña = document.getElementById('contraseña').value;
 
-                    // Mostrar el resultado en el elemento con id "resultadoRA"
-                    var resultadoHTML = "<p>ID: " + raSeleccionado.id + "</p>";
-                    resultadoHTML += "<p>Texto RA: " + raSeleccionado.textoRA + "</p>";
-                    resultadoHTML += "<p>Criterios:</p><ul>";
-
-                    // Recorrer los criterios y agregarlos a la lista
-                    for (var criterio in raSeleccionado.criterios) {
-                        resultadoHTML += "<li>" + criterio + ": " + raSeleccionado.criterios[criterio] + "</li>";
-                    }
-
-                    resultadoHTML += "</ul>";
-
-                    document.getElementById("resultadoRA").innerHTML = resultadoHTML;
-                }
-            };
-            xhttp.open("GET", "Bd.json", true);
-            xhttp.send();
+      if (usuario === 'admin' && contraseña === 'admin') {
+        const nombreProfesor = prompt('Introduce tu nombre:');
+        if (nombreProfesor) {
+          document.getElementById('nombreProfesor').innerText = nombreProfesor;
+          document.getElementById('nombreInput').value = nombreProfesor;
+          document.getElementById('credenciales').style.display = 'none';
         }
-    </script>
+      } else {
+        alert('Acceso denegado. Usuario o contraseña incorrectos.');
+      }
+    }
+
+    function checkEnter(event) {
+      if (event.key === 'Enter') {
+        const nombreInput = document.getElementById('nombreInput').value;
+        if (nombreInput) {
+          document.getElementById('nombreProfesor').innerText = nombreInput;
+          document.getElementById('credenciales').style.display = 'none';
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
