@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Jairo</title>
+    <script src="Prueba Practica RA4_abcde-Recuperación.js"></script>
+</head>
+
+<body>
+    <label for="seleccion">Selecciona un valor entre 5 y 10:</label>
+    <select id="lista1">
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <label for="seleccion">Selecciona un valor entre 20 y 30:</label>
+    <select id="lista2">
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+    </select>
+    <br>
+    <br>
+    <button onclick="abrirVentana('ventana1', 'green', 0, 0)">Abrir Ventana 1</button>
+    <button onclick="abrirVentana('ventana2', 'blue', window.innerWidth - 300, 0)">Abrir Ventana 2</button>
+    <button onclick="abrirVentana('ventana3', 'pink', (window.innerWidth - 300) / 2, window.innerHeight - 300);">Abrir Ventana 3</button>
+
+
+    <br>
+    <br>
+    <button onclick="cerrarVentana('ventana1')">Cerrar Ventana 1</button>
+    <button onclick="cerrarVentana('ventana2')">Cerrar Ventana 2</button>
+    <button onclick="cerrarVentana('ventana3')">Cerrar Ventana 3</button>
+    <br>
+    <br>
+    <button onclick="mostrarLista2()"> Mostrar valores de lista2</button>
+    <div id="mostrar"></div>
+    
+</body>
+
+</html>
