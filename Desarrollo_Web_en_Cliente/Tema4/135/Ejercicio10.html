@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Captura de Eventos</h1>
+
+<button id="miBoton" onclick="mostrarMensaje()" onmouseover="resaltar()" onmouseout="restaurar()">Haz clic o pasea el ratón sobre mí</button>
+<button onclick="eliminarEventos()">Eliminar Eventos</button>
+
+<script>
+function mostrarMensaje() {
+    alert("¡Se ha hecho clic en el botón!");
+}
+
+function resaltar() {
+    document.getElementById("miBoton").style.backgroundColor = "#ffcc00";
+}
+
+function restaurar() {
+    document.getElementById("miBoton").style.backgroundColor = "";
+}
+
+function eliminarEventos() {
+    var boton = document.getElementById("miBoton");
+
+    // Elimina los eventos asociados al botón
+    boton.removeEventListener("click", mostrarMensaje);
+    boton.removeEventListener("mouseover", resaltar);
+    boton.removeEventListener("mouseout", restaurar);
+
+    alert("Se han eliminado los eventos asociados al botón");
+}
+</script>
+
+</body>
+</html>
